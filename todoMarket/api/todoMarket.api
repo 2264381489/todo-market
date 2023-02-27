@@ -1,0 +1,21 @@
+syntax = "v1"
+
+type (
+	AddTodoListReq {
+		Name          string `json:"name"`
+		Type          string `json:"type"`          // 类型 每日/每次/每周
+		Status        string `json:"status"`        // 开启 关闭 暂停
+		StartTime     int64  `json:"startTime"`     // 开始时间
+		EndTime       int64  `json:"endTime"`       // 结束时间
+		Score         int64  `json:"score"`         // 总分值
+		DailyScore    int64  `json:"dailyScore"`    // 每日分值
+		CompleteScore int64  `json:"completeScore"` // 奖励分值
+	}
+	AddTodoListResp {
+		IsSuccess bool `json:"isSuccess"`
+	}
+)
+service todoMarket {
+	@handler AddTodoList
+	post /AddTodoList (AddTodoListReq) returns (AddTodoListResp)
+}
