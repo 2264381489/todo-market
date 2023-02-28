@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/jinzhu/gorm v1.9.16
+	github.com/jinzhu/now v1.1.5
 	github.com/zeromicro/go-zero v1.4.3
 )
 
@@ -22,7 +23,6 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.7.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
-	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/mattn/go-colorable v0.1.9 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mattn/go-sqlite3 v1.14.16 // indirect

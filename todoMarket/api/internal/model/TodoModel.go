@@ -21,6 +21,7 @@ type TodoItem struct {
 	EndTime    int64  `json:"endTime"`                          // 结束时间
 	GetScore   int64  `json:"GetScore"`                         // 获得的分值
 	TotalScore int64  `json:"score"`                            // 总分值
+	Status     bool   `json:"status"`                           // 是否w
 	CreateAt   int64  `json:"createAt" gorm:"column:createAt"`  // 秒级时间戳
 	UpdateAt   int64  `json:"updateAt"  gorm:"column:updateAt"` // 秒级时间戳
 }

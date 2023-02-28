@@ -1,5 +1,4 @@
 syntax = "v1"
-
 type (
 	AddTodoListReq {
 		Name          string `json:"name"`
@@ -14,8 +13,54 @@ type (
 	AddTodoListResp {
 		IsSuccess bool `json:"isSuccess"`
 	}
+
+	GetTodoListReq{
+	        Id            int64  `form:"id,optional"`
+	        Name          string `form:"name,optional"`
+      		Type          string `form:"type,optional"`          // 类型 每日/每次/每周
+      		Status        string `form:"status,optional"`        // 开启 关闭 暂停
+      		StartTime     int64  `form:"startTime,optional"`     // 开始时间
+      		EndTime       int64  `form:"endTime,optional"`       // 结束时间
+      		Score         int64  `form:"score,optional"`         // 总分值
+      		DailyScore    int64  `form:"dailyScore,optional"`    // 每日分值
+      		CompleteScore int64  `form:"completeScore,optional"` // 奖励分值
+	}
+	GetTodoListRep{
+        TodoList []*TodoList{}  `json:"todoList"`
+	}
+	TodoList {
+	            Id            int64  `json:"id,omitempty"`
+     	        Name          string `json:"name,omitempty"`
+           		Type          string `json:"type,omitempty"`          // 类型 每日/每次/每周
+           		Status        string `json:"status,omitempty"`        // 开启 关闭 暂停
+           		StartTime     int64  `json:"startTime,omitempty"`     // 开始时间
+           		EndTime       int64  `json:"endTime,omitempty"`       // 结束时间
+           		Score         int64  `json:"score,omitempty"`         // 总分值
+           		DailyScore    int64  `json:"dailyScore,omitempty"`    // 每日分值
+           		CompleteScore int64  `json:"completeScore,omitempty"` // 奖励分值
+                todoListItems []*todoListItem `json:todoListItems,omitempty`
+	}
+	todoListItem{
+ID         int64  `json:"todoItemId" `
+	TodoListId int64  `json:"todeListId"`
+	Name       string `json:"name"`
+	Type       string `json:"type"`                             // 类型 每日/每次/每周
+	StartTime  int64  `json:"startTime"`                        // 开始时间
+	EndTime    int64  `json:"endTime"`                          // 结束时间
+	GetScore   int64  `json:"GetScore"`                         // 获得的分值
+	TotalScore int64  `json:"score"`                            // 总分值
+	Status     bool   `json:"status"`                           // 是否w
+	CreateAt   int64  `json:"createAt"`  // 秒级时间戳
+	UpdateAt   int64  `json:"updateAt"` // 秒级时间戳
+	}
+
+
 )
 service todoMarket {
 	@handler AddTodoList
 	post /AddTodoList (AddTodoListReq) returns (AddTodoListResp)
+
+	@handler GetTodoList
+    get /todoList (GetTodoListReq) returns (GetTodoListRep)
+    
 }

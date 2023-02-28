@@ -17,7 +17,7 @@ type TodoList struct {
 	ID            int64                   `json:"ID" gorm:"column:todoListId"`
 	Name          string                  `json:"name"`
 	Type          string                  `json:"type"`                             // 类型 每日/每次/每周
-	Status        constant.TodoListStatus `json:"status"`                           // 开启 关闭 暂停
+	Status        constant.TodoListStatus `json:"status"`                           // 开启 关闭 暂停 完成
 	StartTime     int64                   `json:"startTime"`                        // 开始时间
 	EndTime       int64                   `json:"endTime"`                          // 结束时间
 	Score         int64                   `json:"score"`                            // 总分值
